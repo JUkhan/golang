@@ -43,4 +43,15 @@ func main() {
 	fmt.Println(examples.PermutationDfs("ABC"))
 	fmt.Println("-------------permutation using FIFO-BB(BFS)-----------------")
 	fmt.Println(examples.PermutationBfs("ABC"))
+	fmt.Println("-------------Knapsack using greedy method-----------------")
+	kdata := []examples.KData{
+		{Product: "1", Price: 10, Weight: 2},
+		{Product: "2", Price: 5, Weight: 3},
+		{Product: "3", Price: 15, Weight: 5},
+		{Product: "4", Price: 7, Weight: 7},
+		{Product: "5", Price: 6, Weight: 1},
+		{Product: "6", Price: 18, Weight: 4},
+		{Product: "7", Price: 3, Weight: 1},
+	}
+	fmt.Println(examples.Knapsack(kdata, 15))
 }
