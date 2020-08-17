@@ -1,4 +1,4 @@
-package utils
+package ds
 
 import (
 	"sync"
@@ -6,7 +6,9 @@ import (
 
 //this is queue item type
 
-type Item interface{}
+type Item interface {
+	//ToString() string
+}
 
 type Queue struct {
 	items  []Item

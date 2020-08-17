@@ -3,17 +3,17 @@ package examples
 import (
 	"fmt"
 
-	"../utils"
+	"../ds"
 )
 
 type Node struct {
 	left  *Node
-	data  string
+	data  interface{}
 	right *Node
 }
 
 func Bfs(tree Node) {
-	q := utils.Queue{}
+	q := ds.Queue{}
 	q.Enqueue(tree)
 	for !q.IsEmpty() {
 		n, ok := q.Dequeue().(Node)

@@ -1,7 +1,7 @@
 package examples
 
 import (
-	"../utils"
+	"../ds"
 )
 
 type state struct {
@@ -12,7 +12,7 @@ type state struct {
 //permutation using BFS(branch and bound) FIFI BB
 func PermutationBfs(str string) (res []string) {
 	arr := []rune(str)
-	q := utils.Queue{}
+	q := ds.Queue{}
 	n := len(arr)
 	for i := 0; i < n; i++ {
 		q.Enqueue(state{values: []rune{arr[i]}, lavel: 1})

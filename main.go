@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"./ds"
 	"./examples"
 	//"github.com/cheekybits/genny/generic"
 )
@@ -54,4 +55,36 @@ func main() {
 		{Product: "7", Price: 3, Weight: 1},
 	}
 	fmt.Println(examples.Knapsack(kdata, 15))
+
+	fmt.Println("-------------Activity Selection-----------------")
+	adata := []examples.ActivetyData{
+		{Activity: "A1", Start: 12, Finish: 25},
+		{Activity: "A2", Start: 10, Finish: 20},
+		{Activity: "A3", Start: 30, Finish: 30},
+	}
+	fmt.Println(examples.ActivitySelection(adata))
+
+	fmt.Println("-------------PriorityQueue-----------------")
+	pq := ds.NewPriorityQueue(func(pItem, cItem ds.Item) bool {
+		p := pItem.(int)
+		c := cItem.(int)
+		return p < c
+	})
+
+	/*pq.Enqueue(15)
+	pq.Enqueue(10)
+	pq.Enqueue(30)
+	pq.Enqueue(20)
+	pq.Enqueue(50)
+	pq.Enqueue(8)
+	pq.Enqueue(16)
+	pq.Enqueue(2)*/
+	pq.Heapify([]ds.Item{15, 10, 30, 20, 50, 8, 16, 2})
+
+	for !pq.IsEmpty() {
+		fmt.Println(pq.Dequeue())
+	}
+	fmt.Println("-------------HuffmanCoding-----------------")
+	fmt.Println("Original msg: EEAAADDDDBBBBBCCCCCC")
+	fmt.Println("Encoded msg:", examples.HuffmanCoding("EEAAADDDDBBBBBCCCCCC").EncodedMsg)
 }
